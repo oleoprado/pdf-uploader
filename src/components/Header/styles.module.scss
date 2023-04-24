@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.container {
+  background-color: #F3F3F3;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 2px 16px 0px #33333333;
+  padding-inline: 1.25rem;
+
+
+  span {
+    color: $primary;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  @media (min-width: 768px) {
+    padding-inline: 10rem;
+    span {
+      font-size: 1.25rem;
+    }
+  }
+}
