@@ -17,9 +17,13 @@
   }
 
   @media (min-width: 768px) {
-    padding-inline: 10rem;
+    padding-inline: 5rem;
     span {
       font-size: 1.25rem;
     }
   }
+  @media (min-width: 992px) {
+    padding-inline: 10rem;
+  }
+  
 }

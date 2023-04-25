@@ -1,0 +1,12 @@
+.container {
+  margin: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    margin: 0 5rem;
+  }
+  @media (min-width: 992px) {
+    margin: 0 10rem;
+  }
+}
