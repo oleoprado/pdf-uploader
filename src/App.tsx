@@ -1,11 +1,20 @@
+import { Divider } from 'antd'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
+import SearchAndUpload from './components/SearchAndUpload/SearchAndUpload'
+import UploadSearchInfo from './components/UploadSearchInfo/UploadSearchInfo'
+
+import styles from './styles/app.module.scss'
 
 function App() {
   return (
     <>
       <Header />
-      <main>main</main>
+      <main className={styles.container}>
+        <UploadSearchInfo />
+        <SearchAndUpload />
+        <Divider style={{ marginTop: '2rem' }} />
+      </main>
       <Footer />
     </>
   )
