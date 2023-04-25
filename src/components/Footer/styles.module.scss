@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 0;
+  background: $gray-150;
+  color: $text-gray-500;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary;
+  }
+}
