@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+.container {
+  thead th {
+    background: $primary !important;
+    color: #fff !important;
+    text-align: center !important;
+  }
+
+  tbody tr {
+    text-align: center;
+  }
+}
