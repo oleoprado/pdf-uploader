@@ -1,55 +1,43 @@
-import { Input, Button, Upload } from 'antd'
-import type { UploadProps } from 'antd'
-import type { UploadFile } from 'antd/es/upload/interface'
-import { UploadOutlined } from '@ant-design/icons'
+import { Input, Button } from 'antd'
 
 import styles from './styles.module.scss'
 import { useState } from 'react'
+import UploadPdfModal from '../UploadPdfModal/UploadPdfModal'
 
 const { Search } = Input
 
 function SearchAndUpload() {
-  const [fileList, setFileList] = useState<UploadFile[]>([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const handleChange: UploadProps['onChange'] = (info) => {
-    let newFileList = [...info.fileList]
-
-    // limita o numero de arquivos uploaded
-    newFileList = newFileList.slice(-3)
-
-    //  le a resposta e mostra o link do arquivo
-    newFileList = newFileList.map((file) => {
-      if (file.response) file.url = file.response.url
-      return file
-    })
-
-    setFileList(newFileList)
+  function handleOk() {
+    setIsModalOpen(false)
   }
 
-  const props = {
-    action: 'https://localhost:5173/',
-    onChange: handleChange,
-    multiple: true,
+  function handleCancel() {
+    setIsModalOpen(false)
   }
 
   const onSearch = (value: string) => console.log(value)
 
   return (
-    <form action="" className={styles.container}>
-      <Search
-        placeholder="Digite o que deseja buscar"
-        allowClear
-        onSearch={onSearch}
-        className={styles.input}
+    <>
+      <div className={styles.container}>
+        <Search
+          placeholder="Digite o que deseja buscar"
+          allowClear
+          onSearch={onSearch}
+          className={styles.input}
+        />
+        <Button type="primary" onClick={() => setIsModalOpen(true)}>
+          Upload PDF
+        </Button>
+      </div>
+      <UploadPdfModal
+        isModalOpen={isModalOpen}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
       />
-      <Upload
-        {...props}
-        fileList={fileList}
-        // className={styles.}
-      >
-        <Button icon={<UploadOutlined />}>Upload PDF</Button>
-      </Upload>
-    </form>
+    </>
   )
 }
 
