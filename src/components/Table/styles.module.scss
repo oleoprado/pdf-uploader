@@ -10,4 +10,8 @@
   tbody tr {
     text-align: center;
   }
+
+  @media (min-width: 320px) {
+    overflow-x: scroll;
+  }
 }
