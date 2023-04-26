@@ -7,7 +7,7 @@ const steps = [
     step: '1',
     title: 'Objetivo',
     content:
-      'Faça upload de arquivos PDF e realize buscas nos textos da tabela contida no arquivo.Os dados da tabela são armazenados em um banco de dados para que possam ser acessados posteriormente!',
+      'Faça upload de arquivos PDF e realize buscas nos textos da tabela contida no arquivo.Os dados serão armazenados em um banco de dados.',
   },
   {
     step: '2',
@@ -17,7 +17,7 @@ const steps = [
   },
   {
     step: '3',
-    title: 'Buscar dados',
+    title: 'Buscar',
     content:
       'Após fazer o upload, utilize o campo abaixo para realizar buscas nos textos da tabela.Você pode acessá-los sempre que precisar.',
   },
