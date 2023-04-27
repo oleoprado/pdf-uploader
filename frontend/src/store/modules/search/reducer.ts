@@ -16,8 +16,6 @@ const search: Reducer<ISearchState, IAction> = (
   state = INITIAL_STATE,
   action: IAction,
 ) => {
-  // console.log(action.payload)
-
   const actionReducer = {
     FETCHING_DATA: {
       ...state,
@@ -27,7 +25,6 @@ const search: Reducer<ISearchState, IAction> = (
       ...state,
       isLoading: false,
       items: [action.payload],
-      // items: action.payload,
     },
     FETCH_DATA_ERROR: {
       ...state,
@@ -36,21 +33,6 @@ const search: Reducer<ISearchState, IAction> = (
     },
   }
   return actionReducer[action.type] ?? state
-  // switch (action.type) {
-  //   case 'FETCHING_DATA':
-  //     return {
-  //       ...state,
-  //       isLoading: true,
-  //     }
-  //   case 'FETCH_SUCCESS':
-  //     return {
-  //       ...state,
-  //       isLoading: false,
-  //       items: action.payload.data,
-  //     }
-  //   default:
-  //     return state
-  // }
 }
 
 export default search

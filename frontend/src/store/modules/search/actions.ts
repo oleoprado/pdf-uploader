@@ -1,5 +1,3 @@
-// import { Dispatch } from 'redux'
-// import { api } from '../../../lib/api'
 import { ISearch } from './types'
 
 export function fetchingData() {
@@ -17,15 +15,3 @@ export function fetchDataError(payload: string) {
 export function requestDataWithSearchInput(searchInput: string) {
   return { type: 'REQUEST_DATA_WITH_SEARCH_INPUT', payload: searchInput }
 }
-
-// export const fetchData = () => async (dispatch: Dispatch) => {
-//   dispatch(fetchingData())
-//   try {
-//     const response = await api.get('/files')
-//     dispatch(fetchSuccess(response.data))
-//   } catch (error) {
-//     if (error instanceof Error) {
-//       dispatch(fetchError(error.message))
-//     }
-//   }
-// }
