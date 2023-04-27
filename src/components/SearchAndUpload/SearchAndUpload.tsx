@@ -46,7 +46,7 @@ function SearchAndUpload() {
       <div className={styles.container}>
         <Search
           placeholder="Digite o que deseja buscar"
-          allowClear
+          // allowClear
           value={searchInput}
           onChange={({ target }) => setSearchInput(target.value)}
           onSearch={onSearch}

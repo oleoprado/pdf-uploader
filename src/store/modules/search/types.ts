@@ -11,3 +11,7 @@ export interface ISearchState {
   error: string
   items: ISearch[]
 }
+
+export interface IState {
+  search: ISearchState
+}

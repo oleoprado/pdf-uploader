@@ -6,12 +6,12 @@ export function fetchingData() {
   return { type: 'FETCHING_DATA' }
 }
 
-export function fetchData(payload: ISearch[]) {
-  return { type: 'FETCH_SUCCESS', payload }
+export function fetchDataSuccess(payload: ISearch[]) {
+  return { type: 'FETCH_DATA_SUCCESS', payload }
 }
 
-export function fetchError(payload: string) {
-  return { type: 'FETCH_ERROR', payload }
+export function fetchDataError(payload: string) {
+  return { type: 'FETCH_DATA_ERROR', payload }
 }
 
 export function requestDataWithSearchInput(searchInput: string) {

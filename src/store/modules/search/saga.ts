@@ -1,6 +1,6 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects'
 import { api } from '../../../lib/api'
-import { fetchData, fetchError } from './actions'
+import { fetchDataSuccess, fetchDataError } from './actions'
 
 interface ISagaProps {
   type: string
@@ -12,10 +12,10 @@ function* fetchDataSaga(action: ISagaProps): Generator<any, void, any> {
   try {
     // yield put(fetchingData())
     const response = yield call(api.get, `/files?search=${action.payload}`)
-    yield put(fetchData(response.data))
+    yield put(fetchDataSuccess(response.data))
   } catch (error) {
     if (error instanceof Error) {
-      yield put(fetchError(error.message))
+      yield put(fetchDataError(error.message))
     }
   }
 }
