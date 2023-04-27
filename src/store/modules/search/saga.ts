@@ -1,14 +1,14 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects'
 import { api } from '../../../lib/api'
-import { fetchingData, fetchData, fetchError } from './actions'
-import { ISearch } from './types'
+import { fetchData, fetchError } from './actions'
 
 interface ISagaProps {
   type: string
   payload: string
 }
 
-function* fetchDataSaga(action: ISagaProps) {
+// FIXME: arrumar tipagem generiscs GENERATOR
+function* fetchDataSaga(action: ISagaProps): Generator<any, void, any> {
   try {
     // yield put(fetchingData())
     const response = yield call(api.get, `/files?search=${action.payload}`)
@@ -20,6 +20,8 @@ function* fetchDataSaga(action: ISagaProps) {
   }
 }
 
-// 1 para é qual action vai escutar e a 2 é qual vai executar
-// takeLatest pega somente a ultima request
-export default all([takeLatest('FETCH_DATA_WITH_SEARCH_INPUT', fetchDataSaga)])
+// 1- é qual action vai escutar e a 2 é qual função vai executar
+// takeLatest pega somente a ultima request (se fizer 5 seguidas, descarta as 4 primeira e só executa a ultima)
+export default all([
+  takeLatest('REQUEST_DATA_WITH_SEARCH_INPUT', fetchDataSaga),
+])

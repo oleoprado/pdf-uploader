@@ -14,8 +14,8 @@ export function fetchError(payload: string) {
   return { type: 'FETCH_ERROR', payload }
 }
 
-export function fetchDataWithSearchInput(searchInput: string) {
-  return { type: 'FETCH_DATA_WITH_SEARCH_INPUT', payload: searchInput }
+export function requestDataWithSearchInput(searchInput: string) {
+  return { type: 'REQUEST_DATA_WITH_SEARCH_INPUT', payload: searchInput }
 }
 
 // export const fetchData = () => async (dispatch: Dispatch) => {
