@@ -7,7 +7,7 @@ import UploadPdfModal from '../UploadPdfModal/UploadPdfModal'
 import { useDispatch } from 'react-redux'
 import {
   // fetchData,
-  fetchDataWithSearchInput,
+  requestDataWithSearchInput,
   fetchingData,
 } from '../../store/modules/search/actions'
 
@@ -29,7 +29,7 @@ function SearchAndUpload() {
   // TODO: chamar o dispatch para buscar os dados com queryParams(serachInput)
   const onSearch = async () => {
     dispatch(fetchingData())
-    dispatch(fetchDataWithSearchInput(searchInput))
+    dispatch(requestDataWithSearchInput(searchInput))
     // const response = await api.get(`/files?search=${searchInput}`)
     // dispatch(fetchData(response.data))
   }
@@ -46,7 +46,7 @@ function SearchAndUpload() {
       <div className={styles.container}>
         <Search
           placeholder="Digite o que deseja buscar"
-          allowClear
+          // allowClear
           value={searchInput}
           onChange={({ target }) => setSearchInput(target.value)}
           onSearch={onSearch}

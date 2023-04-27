@@ -2,8 +2,7 @@ import { Space, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { useSelector } from 'react-redux'
 
-import { IState } from '../../store'
-import { ISearch } from '../../store/modules/search/types'
+import { ISearch, IState } from '../../store/modules/search/types'
 
 import styles from './styles.module.scss'
 
