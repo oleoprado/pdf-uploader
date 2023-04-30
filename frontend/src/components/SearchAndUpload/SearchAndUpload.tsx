@@ -1,15 +1,15 @@
 import { Input, Button } from 'antd'
-
-import styles from './styles.module.scss'
 import { useState } from 'react'
-import UploadPdfModal from '../UploadPdfModal/UploadPdfModal'
-// import { api } from '../../lib/api'
 import { useDispatch } from 'react-redux'
+
+import UploadPdfModal from '../UploadPdfModal/UploadPdfModal'
+
 import {
-  // fetchData,
   requestDataWithSearchInput,
   fetchingData,
 } from '../../store/modules/search/actions'
+
+import styles from './styles.module.scss'
 
 const { Search } = Input
 
@@ -26,20 +26,12 @@ function SearchAndUpload() {
     setIsModalOpen(false)
   }
 
-  // TODO: chamar o dispatch para buscar os dados com queryParams(serachInput)
   const onSearch = async () => {
-    dispatch(fetchingData())
-    dispatch(requestDataWithSearchInput(searchInput))
-    // const response = await api.get(`/files?search=${searchInput}`)
-    // dispatch(fetchData(response.data))
+    if (searchInput.length) {
+      dispatch(fetchingData())
+      dispatch(requestDataWithSearchInput(searchInput))
+    }
   }
-
-  // useEffect(() => {
-  //   if (!searchInput.length) {
-  //     dispatch(fetchingData())
-  //     api.get('/files').then((response) => dispatch(fetchData(response.data)))
-  //   }
-  // }, [searchInput, dispatch])
 
   return (
     <>

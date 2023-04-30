@@ -36,7 +36,7 @@ const columns: ColumnsType<IDataType> = [
     dataIndex: 'quantity',
   },
   {
-    title: 'Action',
+    title: 'Ação',
     key: 'action',
     render: (_, record) => (
       <Space size="middle">
