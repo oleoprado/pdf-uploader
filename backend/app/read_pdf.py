@@ -3,13 +3,15 @@ import os
 
 pdf_path = os.path.join(os.path.dirname(__file__), "table_example.pdf")
 
+# name PDF
+pdf_name = os.path.basename(pdf_path)
 # Read PDF tables using Tabula
 pdf_file = tabula.read_pdf(pdf_path, pages="all")
 
 # Iterate over each table found
 for i, table in enumerate(pdf_file, start=1):
     # Print table number
-    print(f"Table {i}:")
+    print(f"Table {i} from file {pdf_name}")
     # Print column names
     print((table.columns.tolist()))
     # Iterate over each row of the table

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-import uvicorn
 from typing import Union
 from database import get_files
+from server import init_server
 
 app = FastAPI()
 
@@ -17,4 +17,4 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=3333, reload=True)
+    init_server()
