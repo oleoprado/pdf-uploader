@@ -1,23 +1,20 @@
 import tabula
 import os
+from controller import save_pdf_file, save_pdf_content
 
 pdf_path = os.path.join(os.path.dirname(__file__), "table_example.pdf")
 
-# name PDF
-pdf_name = os.path.basename(pdf_path)
-# Read PDF tables using Tabula
-pdf_file = tabula.read_pdf(pdf_path, pages="all")
 
-# Iterate over each table found
-for i, table in enumerate(pdf_file, start=1):
-    # Print table number
-    print(f"Table {i} from file {pdf_name}")
-    # Print column names
-    print((table.columns.tolist()))
-    # Iterate over each row of the table
-    for _, row in table.iterrows():
-        item, description, unit, quantity = row.tolist()
+def read_and_save_pdf(pdf_path):
+    pdf_name = os.path.basename(pdf_path)
+    pdf_tables = tabula.read_pdf(pdf_path, pages="all")
 
-        print(f"{item} - {description} - {unit} - {quantity}")
-    # Add a blank line to separate tables
-    print()
+    pdf_id = save_pdf_file(pdf_name, open(pdf_path, "rb").read())
+
+    for _, table in enumerate(pdf_tables, start=1):
+        for _, row in table.iterrows():
+            item, description, unit, quantity = row.tolist()
+            save_pdf_content(item, description, unit, quantity, pdf_id)
+
+
+read_and_save_pdf(pdf_path)
