@@ -57,7 +57,11 @@ def search_description(query_params):
             PDF_Content.quantity,
             PDF_Content.pdf_id
         )
-        .where(PDF_Content.description.contains(query_params))
+        .where(
+            (PDF_Content.description.contains(query_params)) |
+            (PDF_Content.unit.contains(query_params)) |
+            (PDF_Content.quantity.contains(query_params))
+        )
         .join(PDF_File, on=(PDF_Content.pdf_id == PDF_File.id))
         .dicts()
     )
