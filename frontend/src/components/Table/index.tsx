@@ -1,4 +1,4 @@
-import { Space, Table } from 'antd'
+import { Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { useSelector } from 'react-redux'
 
@@ -35,22 +35,13 @@ const columns: ColumnsType<IDataType> = [
     title: 'Quantidade',
     dataIndex: 'quantity',
   },
-  {
-    title: 'Ação',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Delete</a>
-      </Space>
-    ),
-  },
 ]
 
 function TableComponent() {
   const response = useSelector<IState, ISearch[]>((state) => state.search.items)
 
   return (
-    <Table<IDataType>
+    <Table
       columns={columns}
       dataSource={response}
       className={styles.container}

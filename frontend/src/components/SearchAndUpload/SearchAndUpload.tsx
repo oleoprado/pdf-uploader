@@ -1,6 +1,7 @@
 import { Input, Button } from 'antd'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { UploadOutlined } from '@ant-design/icons'
 
 import UploadPdfModal from '../UploadPdfModal/UploadPdfModal'
 
@@ -50,7 +51,11 @@ function SearchAndUpload() {
           onSearch={onSearch}
           className={styles.input}
         />
-        <Button type="primary" onClick={() => setIsModalOpen(true)}>
+        <Button
+          type="primary"
+          onClick={() => setIsModalOpen(true)}
+          icon={<UploadOutlined style={{ fontSize: '16px' }} />}
+        >
           Upload PDF
         </Button>
       </div>
