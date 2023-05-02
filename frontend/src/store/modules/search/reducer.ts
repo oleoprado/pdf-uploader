@@ -24,7 +24,7 @@ const search: Reducer<ISearchState, IAction> = (
     FETCH_DATA_SUCCESS: {
       ...state,
       isLoading: false,
-      items: [action.payload],
+      items: action.payload,
     },
     FETCH_DATA_ERROR: {
       ...state,

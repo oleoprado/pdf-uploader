@@ -54,7 +54,7 @@ function TableComponent() {
       columns={columns}
       dataSource={response}
       className={styles.container}
-      rowKey="id"
+      rowKey="pdf_id"
     />
   )
 }
