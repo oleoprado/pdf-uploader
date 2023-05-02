@@ -8,7 +8,7 @@ export interface ISearch {
 
 export interface ISearchState {
   isLoading: boolean
-  error: string
+  error: string | null
   items: ISearch[]
 }
 
