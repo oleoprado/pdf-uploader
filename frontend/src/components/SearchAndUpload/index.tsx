@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { UploadOutlined } from '@ant-design/icons'
 
-import UploadPdfModal from '../UploadPdfModal/UploadPdfModal'
+import UploadPdfModal from '../UploadPdfModal'
 
 import {
   requestDataWithSearchInput,

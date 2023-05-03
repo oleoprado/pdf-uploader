@@ -1,11 +1,11 @@
 import { Divider } from 'antd'
 import { useSelector } from 'react-redux'
 
-import Footer from './components/Footer/Footer'
-import Header from './components/Header/Header'
-import SearchAndUpload from './components/SearchAndUpload/SearchAndUpload'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import SearchAndUpload from './components/SearchAndUpload'
 import Table from './components/Table'
-import UploadSearchInfo from './components/UploadSearchInfo/UploadSearchInfo'
+import UploadSearchInfo from './components/UploadSearchInfo'
 import { ISearch, IState } from './store/modules/search/types'
 
 import styles from './styles/app.module.scss'
