@@ -43,49 +43,89 @@ Este é um projeto que permite o upload de arquivos PDF e o armazenamento dos da
 * Você precisa ter o [Java runtime](https://www.python.org/downloads/) para rodar o pacote `tabula-py`. Este projeto foi criado usando a versão `v1.8.0_371`
 
 <hr>
+
 Para executar esta aplicação, você precisa fazer o clone para seu computador:
 
 ```bash
-git clone git@github.com:oleoprado/trybe-futebol-clube-backend.git
+git clone git@github.com:oleoprado/pdf-uploader.git
 ```
 
 Entre no diretório:
 
 ```bash
-cd trybe-futebol-clube-backend
+cd pdf-uploader
 ```
 
-Instalar as depedências:
+### **Banco de Dados**
+Para subir o container do db:
+
+```bash
+docker-compose up -d
+```
+
+### **Backend**
+
+Entrar no diretório `backend` e criar um `ambiente virtual`:
+
+```bash
+cd backend
+```
+```bash
+python3 -m venv .venv
+```
+
+Entrar no ambiente virtual para instalar as dependencias:
+
+```bash
+source .venv/bin/activate
+```
+```bash
+pip3 install -r requirements.txt
+```
+
+Dentro do ambiente virtual (`.venv`) iniciar o servidor `backend`:
+
+```bash
+python3 app/api.py    
+```
+
+Estará rodando na porta:
+```bash
+https://localhost:3333
+```
+
+### **Frontend**
+
+Entrar no diretório `frontend` a partir da raiz do projeto:
+
+```bash
+cd frontend
+```
+
+Instalar as dependencias:
 
 ```bash
 npm install
 ```
 
-Rodar o script para subir o container:
+Configurar a variavel de ambiente no arquivo `.env.example`:
 
-```bash
-npm run compose:up
+```
+http://localhost:3333 (sugestão)
 ```
 
-Rodar o script para descer o container:
+Iniciar o servidor do frontend:
 
 ```bash
-npm run compose:down
+npm run dev
 ```
 
-A aplicação estará acessível:
-
+Estará rodando na porta:
 ```bash
-Front-end: https://localhost:3000
-Back-end: https://localhost:3001
+https://localhost:5173
 ```
 
-Para rodar os testes de integração das camadas:
-
-```bash
-npm run test
-```
-
+---
 
 <!-- CONTACT -->
 
@@ -94,8 +134,3 @@ npm run test
 [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/oleoprado/) ![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)
 
 
-<!-- LICENSE -->
-
-## 📝 Licença
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
