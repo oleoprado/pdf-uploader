@@ -15,3 +15,7 @@ export function fetchDataError(payload: string) {
 export function requestDataWithSearchInput(searchInput: string) {
   return { type: 'REQUEST_DATA_WITH_SEARCH_INPUT', payload: searchInput }
 }
+
+export function clearData() {
+  return { type: 'CLEAR_DATA' }
+}

@@ -10,6 +10,7 @@ interface ISagaProps {
 function* fetchDataSaga(action: ISagaProps): Generator<any, void, any> {
   try {
     const response = yield call(api.get, `/files?search=${action.payload}`)
+
     yield put(fetchDataSuccess(response.data))
   } catch (error) {
     if (error instanceof Error) {

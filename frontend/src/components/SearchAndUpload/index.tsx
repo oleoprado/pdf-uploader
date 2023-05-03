@@ -1,12 +1,14 @@
 import { Input, Button } from 'antd'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { UploadOutlined } from '@ant-design/icons'
 
-import UploadPdfModal from '../UploadPdfModal/UploadPdfModal'
+import UploadPdfModal from '../UploadPdfModal'
 
 import {
   requestDataWithSearchInput,
   fetchingData,
+  clearData,
 } from '../../store/modules/search/actions'
 
 import styles from './styles.module.scss'
@@ -33,18 +35,27 @@ function SearchAndUpload() {
     }
   }
 
+  useEffect(() => {
+    if (!searchInput.length) {
+      dispatch(clearData())
+    }
+  }, [searchInput, dispatch])
+
   return (
     <>
       <div className={styles.container}>
         <Search
           placeholder="Digite o que deseja buscar"
-          // allowClear
           value={searchInput}
           onChange={({ target }) => setSearchInput(target.value)}
           onSearch={onSearch}
           className={styles.input}
         />
-        <Button type="primary" onClick={() => setIsModalOpen(true)}>
+        <Button
+          type="primary"
+          onClick={() => setIsModalOpen(true)}
+          icon={<UploadOutlined style={{ fontSize: '16px' }} />}
+        >
           Upload PDF
         </Button>
       </div>

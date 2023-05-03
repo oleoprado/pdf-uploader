@@ -1,20 +1,18 @@
 import { Modal, message, Upload } from 'antd'
 import { InboxOutlined } from '@ant-design/icons'
 import type { UploadProps } from 'antd'
+import { env } from '../../config/env'
 
 const { Dragger } = Upload
 
 const props: UploadProps = {
   name: 'file',
   multiple: true,
-  action: 'https://localhost:3001/files',
+  action: `${env.API_URL}/files`,
   accept: '.pdf',
   onChange(info) {
     const { status } = info.file
 
-    if (status !== 'uploading') {
-      console.log(info.file, info.fileList)
-    }
     if (status === 'done') {
       message.success(`${info.file.name} file uploaded successfully.`)
     } else if (status === 'error') {

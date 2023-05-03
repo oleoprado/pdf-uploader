@@ -2,7 +2,11 @@ import { Reducer } from 'react'
 import { ISearchState } from './types'
 
 interface IAction {
-  type: 'FETCHING_DATA' | 'FETCH_DATA_SUCCESS' | 'FETCH_DATA_ERROR'
+  type:
+    | 'FETCHING_DATA'
+    | 'FETCH_DATA_SUCCESS'
+    | 'FETCH_DATA_ERROR'
+    | 'CLEAR_DATA'
   payload: any
 }
 
@@ -24,12 +28,18 @@ const search: Reducer<ISearchState, IAction> = (
     FETCH_DATA_SUCCESS: {
       ...state,
       isLoading: false,
-      items: [action.payload],
+      items: action.payload,
     },
     FETCH_DATA_ERROR: {
       ...state,
       isLoading: false,
       error: action.payload,
+    },
+    CLEAR_DATA: {
+      ...state,
+      isLoading: false,
+      items: [],
+      error: null,
     },
   }
   return actionReducer[action.type] ?? state
