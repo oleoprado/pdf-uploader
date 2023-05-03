@@ -1,6 +1,6 @@
 <!-- # :construction: README em construção ! :construction: -->
 <div align="center" display="flex" style="padding: 20px 0;">
-<img src="frontend/public/desktop.png" />
+<img src="frontend/public/desktop.png" width="500px"/>
 
 </div>
 <div align="center">
@@ -40,7 +40,7 @@ Este é um projeto que permite o upload de arquivos PDF e o armazenamento dos da
 
 * Você precisa ter o [python](https://www.python.org/downloads/) instalado em seu computador para executar este projeto. Este projeto foi criado usando a versão `v3.11.3`
 
-* Você precisa ter o [Java runtime](https://www.python.org/downloads/) para rodar o pacote `tabula-py`. Este projeto foi criado usando a versão `v1.8.0_371`
+* Você precisa ter o [Java runtime](https://www.java.com/pt-BR/download/manual.jsp) para rodar o pacote `tabula-py`. Este projeto foi criado usando a versão `v1.8.0_371`
 
 <hr>
 
